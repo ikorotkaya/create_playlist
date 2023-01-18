@@ -1,8 +1,8 @@
 import React from 'react';
 import SearchResult from '../SearchResult/SearchResult';
-import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import Playlist from '../Playlist/Playlist';
+import './App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,9 +13,9 @@ class App extends React.Component {
       { name: 'name3', artist: 'artist3', album: 'album3', id: 3 }
       ],
       playlistName: "My Playlist",
-      playlistTracks: [{ name: 'playlistName1', artist: 'PlaylistArtist1', album: 'playlistAlbum1', id: 1 },
-      { name: 'playlistName2', artist: 'PlaylistArtist2', album: 'playlistAlbum2', id: 2 },
-      { name: 'playlistName3', artist: 'PlaylistArtist3', album: 'playlistAlbum3', id: 3 }
+      playlistTracks: [{ name: 'playlistName1', artist: 'PlaylistArtist1', album: 'playlistAlbum1', id: 4 },
+      { name: 'playlistName2', artist: 'PlaylistArtist2', album: 'playlistAlbum2', id: 5 },
+      { name: 'playlistName3', artist: 'PlaylistArtist3', album: 'playlistAlbum3', id: 6 }
       ]
     };
     this.addTrack = this.addTrack.bind(this);
@@ -23,12 +23,12 @@ class App extends React.Component {
 
 
   addTrack(track) {
-    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+    let playlistTracks = this.state.playlistTracks;
+    if (playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
       return;
-    } else {
-      this.state.playlistTracks.push(track);
-      this.setState({ playlistTracks: this.state.playlistTracks });
     }
+    playlistTracks.push(track);
+    this.setState({ playlistTracks: playlistTracks });
   }
 
   render() {
