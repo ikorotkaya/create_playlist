@@ -1,6 +1,7 @@
 import React from "react";
 import Tracklist from "../Tracklist/Tracklist";
 import './Playlist.css';
+import spinner from "./spinning_image.gif"
 
 class Playlist extends React.Component {
   constructor(props) {
@@ -15,11 +16,13 @@ class Playlist extends React.Component {
   render() {
     return (
       <div className="Playlist">
-        <input defaultValue={'New Playlist'} onChange={this.handleNameChange} />
+        <input onChange={this.handleNameChange} value={this.props.playlistName}/>
         <Tracklist tracks={this.props.playlistTracks}
           onRemove={this.props.onRemove}
           isRemoval={true} />
-        <button className="Playlist-save" onClick={this.props.onSave}>SAVE TO SPOTIFY</button>
+        
+        {this.props.playlistBeingUploaded && <img src={spinner} alt="spinner" />}
+        {!this.props.playlistBeingUploaded && <button className="Playlist-save" onClick={this.props.onSave}>SAVE TO SPOTIFY</button>}
       </div>
     )
   }
