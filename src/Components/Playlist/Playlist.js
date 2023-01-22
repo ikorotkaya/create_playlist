@@ -1,7 +1,7 @@
 import React from "react";
 import Tracklist from "../Tracklist/Tracklist";
 import './Playlist.css';
-import spinner from "./spinning_image.gif"
+import spinner from "./Heart-1s-200px.gif"
 
 class Playlist extends React.Component {
   constructor(props) {
