@@ -24,6 +24,7 @@
   flex-direction: column;
   justify-content: center;
   height: 72px;
+  padding: 10px;
 }
 
 .Track-information h3 {
