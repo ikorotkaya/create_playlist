@@ -1,17 +1,45 @@
-Jammming
-Jammming is a React app that allows users to interact with Spotify. (Requires having a Spotify account for playlists to be saved)
+# Jammming
 
-The purpose is to create a simple app that allows users to:
+![Jamming screenshots](https://github.com/ikorotkaya/jammming/blob/b880b91df50e6bb767219c6a7b32335b7f077a19/jammming.png?raw=true)
 
-connect their Spotify account to the app;
-search for songs, artists, albums;
-add selected songs to a new playlist;
-name the playlist;
-save it to their own Spotify account.
-The things that I learned and practiced during the creation of this app were:
+![GitHub License MIT](https://img.shields.io/github/license/sqlhabit/sql_schema_visualizer?color=%2347A3F3)
 
-how to create stateful and stateless components;
-how to pass props from one component to another;
-how to pass a state as a prop to a component;
-how to use Fetch API to make GET and POST requests;
-how to handle promises and data that they might return.
+Jammming is a React app that allows users to interact with Spotify. 
+(Requires having a Spotify account for playlists to be saved)
+
+## Technologies used
+
+- React 
+- JavaScript
+- HTML
+- CSS
+- Spotify API
+- Surge
+
+## How to use
+
+- Connect your Spotify account to the app;
+- Search for songs, artists, albums;
+- Add selected songs to a new playlist;
+- Name the playlist;
+- Save it to your own Spotify account.
+
+## Development
+
+You'll need to install dependencies and start the Vite development server:
+
+```sh
+npm install
+
+npm run start
+```
+
+You'll find the running game at [http://localhost:3000](http://localhost:3000/)
+
+## Contributions
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License. Feel free to use, modify, and distribute the code as per the terms of the license.
