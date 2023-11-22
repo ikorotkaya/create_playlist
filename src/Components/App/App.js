@@ -1,9 +1,9 @@
-import React from 'react';
-import SearchResult from '../SearchResult/SearchResult';
-import SearchBar from '../SearchBar/SearchBar';
-import Playlist from '../Playlist/Playlist';
-import Spotify from '../../util/Spotify';
-import './App.css';
+import React from "react";
+import SearchResult from "../SearchResult/SearchResult";
+import SearchBar from "../SearchBar/SearchBar";
+import Playlist from "../Playlist/Playlist";
+import Spotify from "../../util/Spotify";
+import "./App.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class App extends React.Component {
       searchResults: [],
       playlistName: "My Playlist",
       playlistTracks: [],
-      playlistBeingUploaded: false
+      playlistBeingUploaded: false,
     };
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -23,7 +23,7 @@ class App extends React.Component {
 
   addTrack(track) {
     let tracks = this.state.playlistTracks;
-    if (tracks.find(savedTrack => savedTrack.id === track.id)) {
+    if (tracks.find((savedTrack) => savedTrack.id === track.id)) {
       return;
     }
     tracks.push(track);
@@ -32,59 +32,66 @@ class App extends React.Component {
 
   removeTrack(track) {
     let tracks = this.state.playlistTracks;
-    tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);
+    tracks = tracks.filter((currentTrack) => currentTrack.id !== track.id);
 
-    this.setState({ playlistTracks: tracks })
+    this.setState({ playlistTracks: tracks });
   }
 
   updatePlaylistName(name) {
-    this.setState({ playlistName: name })
+    this.setState({ playlistName: name });
   }
 
   savePlaylist() {
-    this.setState({ playlistBeingUploaded: true })
+    this.setState({ playlistBeingUploaded: true });
 
-    const trackUris = this.state.playlistTracks.map(track => track.uri);
+    const trackUris = this.state.playlistTracks.map((track) => track.uri);
 
     Spotify.savePlaylist(this.state.playlistName, trackUris).then(() => {
       this.setState({
-        playlistName: 'New Playlist',
+        playlistName: "New Playlist",
         playlistTracks: [],
-        playlistBeingUploaded: false
-      })
-
-    })
+        playlistBeingUploaded: false,
+      });
+    });
   }
 
   componentWillMount() {
-    Spotify.getAccessToken()
+    Spotify.getAccessToken();
   }
 
   search(term) {
-    Spotify.search(term).then(searchResults => {
-      this.setState({ searchResults: searchResults })
+    Spotify.search(term).then((searchResults) => {
+      this.setState({ searchResults: searchResults });
     });
   }
 
   render() {
     return (
-      <div>
-        <h1>Ja<span className="highlight">mmm</span>ing</h1>
-        <div className="App">
-          <SearchBar onSearch={this.search} />
-          <div className="App-playlist">
-            <SearchResult searchResults={this.state.searchResults} onAdd={this.addTrack} />
-            <Playlist playlistName={this.state.playlistName}
-              playlistTracks={this.state.playlistTracks}
-              onRemove={this.removeTrack}
-              onNameChange={this.updatePlaylistName}
-              playlistBeingUploaded={this.state.playlistBeingUploaded}
-              onSave={this.savePlaylist} />
-          </div>
+      <div className="app_container">
+        <header>
+          <p>Create A Personal Playlist</p>
+        </header>
+
+        <SearchBar onSearch={this.search} />
+
+        <div className="app_container__content">
+          <SearchResult
+            searchResults={this.state.searchResults}
+            onAdd={this.addTrack}
+          />
+          
+          <Playlist
+            playlistName={this.state.playlistName}
+            playlistTracks={this.state.playlistTracks}
+            onRemove={this.removeTrack}
+            onNameChange={this.updatePlaylistName}
+            playlistBeingUploaded={this.state.playlistBeingUploaded}
+            onSave={this.savePlaylist}
+          />
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
