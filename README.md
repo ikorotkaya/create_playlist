@@ -1,10 +1,10 @@
-# Jammming
+# Create A Personal Playlist With Spotify API
 
-![Jamming screenshots](https://github.com/ikorotkaya/jammming/blob/b880b91df50e6bb767219c6a7b32335b7f077a19/jammming.png?raw=true)
+![App screenshot](https://user-images.githubusercontent.com/91027118/285283233-446b3c11-b15a-4e8b-9157-3b42be1eeab8.png)
 
 ![GitHub License MIT](https://img.shields.io/github/license/sqlhabit/sql_schema_visualizer?color=%2347A3F3)
 
-Jammming is a React app that allows users to interact with Spotify. 
+It is a React app that allows users to interact with Spotify. 
 (Requires having a Spotify account for playlists to be saved)
 
 ## Technologies used
